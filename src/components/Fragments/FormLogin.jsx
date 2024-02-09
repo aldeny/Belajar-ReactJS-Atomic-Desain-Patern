@@ -16,7 +16,7 @@ const FormLogin = () => {
         type="password"
         placeholder="*******"
       />
-      <Button classAdd="bg-blue-500 hover:bg-blue-600">Login</Button>
+      <Button classAdd="bg-blue-500 hover:bg-blue-600 w-full">Login</Button>
     </form>
   );
 };

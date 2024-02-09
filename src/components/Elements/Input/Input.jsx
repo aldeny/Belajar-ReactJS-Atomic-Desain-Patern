@@ -9,6 +9,7 @@ const Input = (props) => {
               invalid:border-pink-500 invalid:text-pink-600
               focus:invalid:border-pink-500 focus:invalid:ring-pink-500 p-2 text-slate-700 placeholder:opacity-50"
       placeholder={placeholder}
+      id={name}
     />
   );
 };
