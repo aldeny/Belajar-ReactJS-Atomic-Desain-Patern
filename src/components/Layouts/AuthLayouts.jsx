@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 const AuthLayouts = (props) => {
-  const { title, children, describe } = props;
+  const { title, children, describe, type } = props;
   return (
     <div className="flex justify-center min-h-screen items-center">
       <div className="w-full max-w-xs">
@@ -11,9 +13,35 @@ const AuthLayouts = (props) => {
         </p>
         <hr className="border-sky-600 mb-8" />
         {children}
+        <NavBottom type={type} />
       </div>
     </div>
   );
+};
+
+// Conditional rendering
+const NavBottom = ({ type }) => {
+  if (type === "login") {
+    return (
+      <p className="mt-4 text-sm text-center">
+        Belum punya akun?
+        <Link to="/register" className="text-blue-600 font-bold">
+          {" "}
+          Register
+        </Link>
+      </p>
+    );
+  } else {
+    return (
+      <p className="mt-4 text-sm text-center">
+        Sudah punya akun?
+        <Link to="/" className="text-blue-600 font-bold">
+          {" "}
+          Login
+        </Link>
+      </p>
+    );
+  }
 };
 
 export default AuthLayouts;
