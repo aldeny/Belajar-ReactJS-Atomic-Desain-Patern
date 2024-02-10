@@ -1,4 +1,6 @@
+import { Fragment } from "react";
 import CardProduct from "../../components/Fragments/CardProduct";
+import Navbar from "../../components/Fragments/Navbar";
 
 //Data dummy untuk test rendering list
 const products = [
@@ -20,20 +22,25 @@ const products = [
   },
 ];
 
+const userEmail = localStorage.getItem("email");
+
 const ProductsPage = () => {
   return (
-    <div className="flex justify-center">
-      {products.map((product) => (
-        //key disini bukan merupakan props
-        <CardProduct key={product.id}>
-          <CardProduct.Header image={product.image} />
-          <CardProduct.Body productName={product.name}>
-            {product.description}
-          </CardProduct.Body>
-          <CardProduct.Footer price={product.price} />
-        </CardProduct>
-      ))}
-    </div>
+    <Fragment>
+      <Navbar userEmail={userEmail} />
+      <div className="flex justify-center">
+        {products.map((product) => (
+          //key disini bukan merupakan props
+          <CardProduct key={product.id}>
+            <CardProduct.Header image={product.image} />
+            <CardProduct.Body productName={product.name}>
+              {product.description}
+            </CardProduct.Body>
+            <CardProduct.Footer price={product.price} />
+          </CardProduct>
+        ))}
+      </div>
+    </Fragment>
   );
 };
 
